@@ -7,6 +7,12 @@ var properties = new Array();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const usersRouter = require("./user/index");
+app.use("/api/users", usersRouter);
+
+const loginRouter = require("./login/index");
+app.use("/api/login", loginRouter);
+
 app.get('/', (req,res) => {
     console.log(req.headers);
     res.send('<h1>Hello World!</h1>');
